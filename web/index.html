@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f4ed">
+    <meta name="description" content="Turn an eligible YouTube video into an MP3 and save it to a folder you choose.">
+    <title>Soundkeep — YouTube to MP3</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Soundkeep home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span>soundkeep<span class="brand-dot">.</span></span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#how-it-works">How it works</a>
+          <a href="#converter" class="nav-cta">Start converting <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-icon" aria-hidden="true">✳</span> YOUR SOUND, YOUR WAY</div>
+            <h1 id="hero-title">Keep the sound.<br><span>Skip the screen.</span></h1>
+            <p class="hero-intro">Turn a YouTube video into an MP3 you can actually keep. One link, a few clicks, and the audio lands right where you want it.</p>
+            <div class="hero-proof"><span class="proof-icon" aria-hidden="true">♫</span><span>No account. No extra software. Just your audio.</span></div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="record"><div class="record-inner"><div class="record-label"><span class="mini-wave">▂▅▇▅▂</span></div></div></div>
+              <div class="record-caption"><span>PLAY IT<br>YOUR WAY</span><span class="caption-arrow">↗</span></div>
+              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            </div>
+          </div>
+
+          <div id="converter" class="converter" aria-labelledby="converter-title">
+            <div class="converter-header">
+              <div><p class="card-eyebrow">THE CONVERTER</p><h2 id="converter-title">YouTube to MP3<span>.</span></h2></div>
+              <div class="format-badge">MP3 <span aria-hidden="true">↗</span></div>
+            </div>
+            <form id="inspect-form" novalidate>
+              <label for="video-url" class="field-label">YouTube video link</label>
+              <div class="url-field">
+                <span class="link-icon" aria-hidden="true">↗</span>
+                <input id="video-url" name="url" type="url" inputmode="url" autocomplete="url" spellcheck="false" placeholder="Paste your YouTube link here" required>
+                <button class="paste-button" id="paste-button" type="button">Paste</button>
+              </div>
+              <button class="inspect-button" id="inspect-button" type="submit">Find video <span aria-hidden="true">→</span></button>
+            </form>
+
+            <div id="video-preview" class="video-preview" hidden>
+              <img id="video-thumbnail" alt="" width="88" height="58">
+              <div class="video-details"><span class="preview-kicker">READY TO CONVERT</span><strong id="video-title"></strong><span id="video-duration"></span></div>
+              <span class="preview-check" aria-hidden="true">✓</span>
+            </div>
+
+            <fieldset class="quality-fieldset">
+              <legend class="field-label">Audio quality</legend>
+              <div class="quality-options">
+                <label><input type="radio" name="quality" value="128"><span>128 <small>kbps</small></span></label>
+                <label><input type="radio" name="quality" value="192" checked><span>192 <small>kbps</small></span></label>
+                <label><input type="radio" name="quality" value="256"><span>256 <small>kbps</small></span></label>
+              </div>
+            </fieldset>
+
+            <div class="destination-block">
+              <div class="destination-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/><path d="M3 10h18"/></svg></div>
+              <div class="destination-copy"><strong>Save destination</strong><span id="destination-name">Choose a folder for your MP3</span></div>
+              <button type="button" class="choose-button" id="choose-folder">Choose <span aria-hidden="true">↗</span></button>
+            </div>
+
+            <button class="convert-button" id="convert-button" type="button" disabled>Convert &amp; download <span aria-hidden="true">↗</span></button>
+            <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+            <div id="progress" class="progress" hidden><div id="progress-bar"></div></div>
+            <p class="card-note"><span aria-hidden="true">✳</span> Use only videos you have permission to save. Public videos only.</p>
+          </div>
+        </section>
+
+        <section class="steps" id="how-it-works" aria-labelledby="steps-title">
+          <div class="section-heading"><span class="section-tag">GOOD THINGS COME IN THREES</span><h2 id="steps-title">Simple as <em>play.</em></h2></div>
+          <div class="step-grid">
+            <article class="step"><span class="step-number">01 /</span><div class="step-symbol" aria-hidden="true">↗</div><h3>Drop the link</h3><p>Paste a link to one public YouTube video or Short.</p></article>
+            <article class="step"><span class="step-number">02 /</span><div class="step-symbol" aria-hidden="true">≋</div><h3>Pick your quality</h3><p>Choose the MP3 bitrate that works for you.</p></article>
+            <article class="step"><span class="step-number">03 /</span><div class="step-symbol" aria-hidden="true">↓</div><h3>Save your sound</h3><p>Pick a folder when your browser supports it, then keep the file.</p></article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer"><a class="brand" href="/" aria-label="Soundkeep home"><span class="brand-mark small" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>soundkeep<span class="brand-dot">.</span></span></a><p>Made for the moments worth replaying.</p><span>© 2026 Soundkeep</span></footer>
+    </div>
+  </body>
+</html>
